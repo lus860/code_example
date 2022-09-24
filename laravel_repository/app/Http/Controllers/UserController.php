@@ -57,6 +57,10 @@ class UserController extends AccountController
         ], Response::HTTP_OK);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function user(Request $request)
     {
         $user = $this->userRepository->getUserById($request->id, $this->company->id);

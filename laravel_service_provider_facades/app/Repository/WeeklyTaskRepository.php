@@ -18,6 +18,15 @@ class WeeklyTaskRepository extends BaseRepository
         return Model::class;
     }
 
+    /**
+     * @param $start
+     * @param $status
+     * @param $companyId
+     * @param $userId
+     * @return mixed
+     */
+    // get weekly items for user by status for that week
+
     public function getWeeklyItem($start, $status, $companyId, $userId)
     {
         $end = Carbon::parse($start)->endOfWeek(Carbon::FRIDAY)->format($this->dateFormat);
@@ -42,6 +51,14 @@ class WeeklyTaskRepository extends BaseRepository
             ->where('created_at', '<=', $end)
             ->orderBy('created_at', 'desc')->paginate(env('PER_PAGE_MIN'));
     }
+
+    /**
+     * @param $start
+     * @param $companyId
+     * @param $userId
+     * @return mixed
+     */
+    // get weekly items for user by status 'coming_up'
 
     public function getComingUp($start, $companyId, $userId)
     {

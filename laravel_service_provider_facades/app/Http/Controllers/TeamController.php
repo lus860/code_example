@@ -10,6 +10,10 @@ use Illuminate\Http\JsonResponse;
 
 class TeamController extends AccountController
 {
+    /**
+     * @param TeamRequest $request
+     * @return JsonResponse
+     */
     public function add(TeamRequest $request)
     {
         $team = Team::createTeam($request, $this->user->id, $this->company->id);
@@ -42,6 +46,10 @@ class TeamController extends AccountController
         ], Response::HTTP_OK);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function team(Request $request)
     {
         $team = $this->teamRepository->getTeamById($request->id, $this->company->id);

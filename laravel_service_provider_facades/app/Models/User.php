@@ -51,6 +51,11 @@ class User extends BaseModel
         return $this->belongsTo('App\Models\Company', 'id_company');
     }
 
+    /**
+     * @param $request
+     * @param $companyId
+     * @return User|false
+     */
     public static function createUser($request, $companyId)
     {
         $user = new self();
@@ -68,6 +73,14 @@ class User extends BaseModel
         return false;
     }
 
+    /**
+     * @param $user
+     * @param null $file
+     * @param null $dirPath
+     * @param null $filename
+     * @param null $name
+     * @return false
+     */
     public static function updateUserAvatar($user, $file = null, $dirPath = null, $filename = null, $name = null)
     {
         if ($file && $dirPath && $filename && $name) {
@@ -92,6 +105,11 @@ class User extends BaseModel
         }
     }
 
+    /**
+     * @param $user
+     * @param $request
+     * @return false
+     */
     public static function updateUser($user, $request)
     {
         $fields = $request->only($user->getFillable());
@@ -104,6 +122,11 @@ class User extends BaseModel
         return false;
     }
 
+    /**
+     * @param $user
+     * @param $request
+     * @return false
+     */
     public static function updateProfile($user, $request)
     {
         $user->first_name = $request->first_name;

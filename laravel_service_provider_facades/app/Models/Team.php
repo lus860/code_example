@@ -20,6 +20,12 @@ class Team extends BaseModel
             ->select(['id', 'id_company', 'email', 'first_name', 'middle_name', 'last_name', 'id_apm_acl_role', 'active', 'file_path', 'file_type', 'file_size', 'file_name', 'lms_file']);
     }
 
+    /**
+     * @param $request
+     * @param $userId
+     * @param $companyId
+     * @return Team|false
+     */
     public static function createTeam($request, $userId, $companyId)
     {
         $team = new self();
@@ -33,6 +39,12 @@ class Team extends BaseModel
         return false;
     }
 
+    /**
+     * @param $team
+     * @param $request
+     * @param $companyId
+     * @return false
+     */
     public static function updateTeam($team, $request, $companyId)
     {
         $team->name = $request->name;

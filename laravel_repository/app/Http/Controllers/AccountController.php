@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repository\UserRepository;
 use App\Repository\TeamRepository;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
@@ -28,6 +29,11 @@ class AccountController extends Controller
         $this->company = $this->user->company;
     }
 
+    /**
+     * @param $error_message
+     * @param $status
+     * @return \Illuminate\Http\JsonResponse
+     */
     public static function httpBadRequest($error_message, $status = Response::HTTP_BAD_REQUEST)
     {
         if ($error_message == self::PERMISSION_DENIED) {

@@ -1,0 +1,32 @@
+<?php
+//Database params
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', 'root');
+define('DB_NAME', 'mvc_chat');
+
+define('URL_ROOT', 'http://chat.loc/');
+
+define("BASE_URL",dirname(__DIR__));
+define("CONFIGS",BASE_URL.DIRECTORY_SEPARATOR."configs".DIRECTORY_SEPARATOR);
+define("CONTROLLERS",BASE_URL.DIRECTORY_SEPARATOR."application".DIRECTORY_SEPARATOR."controllers".DIRECTORY_SEPARATOR);
+define("VIEWS",BASE_URL.DIRECTORY_SEPARATOR."application".DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR);
+define("MODELS",BASE_URL.DIRECTORY_SEPARATOR."application".DIRECTORY_SEPARATOR."models".DIRECTORY_SEPARATOR);
+define("PUB",BASE_URL.DIRECTORY_SEPARATOR."public".DIRECTORY_SEPARATOR);
+define("CSS",PUB."css".DIRECTORY_SEPARATOR);
+define("JS",PUB."js".DIRECTORY_SEPARATOR);
+define("IMAGES",PUB."images".DIRECTORY_SEPARATOR);
+define("VENDOR",BASE_URL.DIRECTORY_SEPARATOR."vendor".DIRECTORY_SEPARATOR);
+define("CORE",VENDOR."core".DIRECTORY_SEPARATOR);
+define("LIB",VENDOR."lib".DIRECTORY_SEPARATOR);
+define("LAYOUTS",VIEWS."layouts".DIRECTORY_SEPARATOR);
+define("ERRORS",VIEWS."errors".DIRECTORY_SEPARATOR);
+define("ROUTES",BASE_URL.DIRECTORY_SEPARATOR."routes".DIRECTORY_SEPARATOR);
+
+//
+define("DEFAULT_CONTROLLER","home");
+define("DEFAULT_ACTION","index");
+
+//
+define("DEFAULT_LAYOUT","default");
+

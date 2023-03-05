@@ -39,6 +39,11 @@ abstract class BaseRepository
         return clone $this->model;
     }
 
+    /**
+     * @param $query
+     * @param $pluck
+     * @return mixed
+     */
     public function getModelPluck($query, $pluck)
     {
         return $query->pluck($pluck)->toArray();

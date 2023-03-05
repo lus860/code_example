@@ -27,6 +27,9 @@ class AccountController extends Controller
     protected $monday;
     protected $feedRepository;
 
+    /**
+     * AccountController constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -45,6 +48,14 @@ class AccountController extends Controller
         $this->dbDateFormatJs = config('date_format.DB_DATE_FORMAT_JS');
     }
 
+    /**
+     * @param $query
+     * @param $permission_name
+     * @param $model
+     * @param null $error_message
+     * @param false $forRepository
+     * @return array
+     */
     public static function permission($query, $permission_name, $model, $error_message = null, $forRepository = false)
     {
         if (!$error_message) {
@@ -63,6 +74,11 @@ class AccountController extends Controller
         }
     }
 
+    /**
+     * @param $error_message
+     * @param $status
+     * @return mixed
+     */
     public static function httpBadRequest($error_message, $status = Response::HTTP_BAD_REQUEST)
     {
         if ($error_message == self::PERMISSION_DENIED) {
@@ -80,6 +96,10 @@ class AccountController extends Controller
         }
     }
 
+    /**
+     * @param $userId
+     * @return Google_Client
+     */
     public function getGoogleClientWithUncheckedAccessToken($userId)
     {
         $client = new Google_Client();

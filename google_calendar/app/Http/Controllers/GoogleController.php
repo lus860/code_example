@@ -11,6 +11,9 @@ use App\Models\User;
 
 class GoogleController extends AccountController
 {
+    /**
+     * @return mixed
+     */
     public function checkCalendarConnection()
     {
         $storageGoogleTokenPath = FileController::getStorageGoogleTokenPath($this->user->id, $this->company->id);
@@ -23,6 +26,9 @@ class GoogleController extends AccountController
         ]);
     }
 
+    /**
+     * @return mixed
+     */
     public function authUrl()
     {
         if (!$this->company->google_calendar_connected) {
@@ -49,6 +55,9 @@ class GoogleController extends AccountController
         ]);
     }
 
+    /**
+     * @return null
+     */
     public function getGoogleAuthUrl()
     {
         $client = $this->getGoogleClientWithUncheckedAccessToken($this->user->id);
@@ -117,6 +126,9 @@ class GoogleController extends AccountController
         ]);
     }
 
+    /**
+     * @return mixed
+     */
     public function removeCalendarToken()
     {
         if (!$this->company->google_calendar_connected) {
